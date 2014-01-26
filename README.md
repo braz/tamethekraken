@@ -6,7 +6,7 @@
 
   1. Install [Node.js](http://nodejs.org/)
   2. Install [MongoDB](http://mongodb.org/)
-  3. Install [KrakenJS](http://krakenjs.com//)
+  3. Install [KrakenJS](http://krakenjs.com/)
   4. Run `sudo npm install braz/tamethekraken -g`
   5. Run `tamethekraken`
   6. **.. profit!**
