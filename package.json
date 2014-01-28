@@ -1,0 +1,36 @@
+{
+  "name": "tamethekraken",
+  "version": "0.1.0",
+  "description": "Tame the Kraken! An introduction to the KrakenJS from Paypal with a focus on MongoDB aspects via a set of self-guided workshops.",
+  "author": "Eoin Brazil <eoin.brazil@gmail.com> (https://github.com/braz)",
+  "contributors": [
+    "Eoin Brazil <eoin.brazil@gmail.com> (https://github.com/braz)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/braz/tamethekraken.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "workshopper": "~0.6.0",
+    "through2": "~0.2.1",
+    "sleep": "~1.1.3"
+  },
+  "bin": {
+    "tamethekraken": "./tamethekraken.js"
+  },
+  "preferGlobal": true,
+  "bugs": {
+    "url": "https://github.com/braz/tamethekraken/issues"
+  },
+  "homepage": "https://github.com/braz/tamethekraken",
+  "main": "tamethekraken.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "workshopper",
+    "mongodb"
+  ]
+}
