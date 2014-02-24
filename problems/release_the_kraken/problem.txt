@@ -1,0 +1,73 @@
+In this exercise you will be using {bold}KrakenJS{/bold} and {bold}MongoDB{/bold}. You will write a program that connects to the database after creating a skeleton of your application using Yeoman and KrakenJS. This is a somewhat longer exercise description due to the necessity to setup the initial application.
+
+This example is based on the excellent tutorial by Lenny Markus of PayPal found at: https://github.com/lmarkus/Kraken_Example_Shopping_Cart
+
+You will need to have MongoDB running on your localhost (127.0.0.1), you will need Node installed (>= 0.10.20 is preferred) and you will need to have install KrakenJS, specially the Kraken generator using {yellow}sudo npm install -g generator-kraken{/yellow}
+
+----------------------------------------------------------------------
+PREREQUISITES
+----------------------------------------------------------------------
+
+This will install Yeoman (https://github.com/yeoman/yeoman) and you will use this to run a specific Kraken generator using the command:
+$ yo kraken
+
+This will ask you a series of questions on the command line / console, you should answer these with the following:
+{blue}{bold}$[?] Application name: ReleaseTheKraken{/bold}{/blue}
+{blue}{bold}$[?] Description: Using KrakenJS and MongoDB{/bold}{/blue}
+{blue}{bold}$[?] Author: YOUR_NAME{/bold}{/blue}
+{blue}{bold}$[?] Use RequireJS? No{/bold}{/blue}
+
+The generator will set up the app and install the dependencies. Once this setup stage is completed you should change directory/'cd' to the newly created directory, which will have the same name as your application name:
+<yellow>cd ReleaseTheKraken</yellow>
+
+The skeleton / code scaffolding for your app, 'ReleaseTheKraken' does not contain any configuration information at this point, so let's add the details for MongoDB on the local host. You can do this by editing your kraken configuration file, {yellow}./config/app.json{/yellow} and adding the DB credentials to it.
+
+```
+"databaseConfig": {
+        "host": "localhost",
+        "database": "test"
+    }
+```
+
+At this stage, the configuration for your database is complete but there is no code to connect your application to the database. This connection will be controlled by the file, {yellow}./lib/database.js{/yellow} so edit it and add the following code to it:
+
+```
+var server = 'mongodb://127.0.0.1:27017/test';
+var MongoClient = require('mongodb').MongoClient
+    , format = require('util').format;
+
+var db = function () {
+    return {
+            config: function (conf) {
+
+                MongoClient.connect(server, function(err, db) {
+                  if(err) {
+                      console.warn(err.message);
+                      return;
+                  }
+
+                  var doc = {"Learning" : "KrakenJS and MongoDB"}; 
+
+                  db.createCollection('test2', function(err, collection) {
+                    if (err) console.warn(err.message);
+                  }) 
+
+                  db.collection('test2').insert(doc, {safe: true}, function(err, object) {
+                      if (err) console.warn(err.message);
+                  });
+
+                  console.log("DB Connection open");
+                });
+        }
+    };
+};
+
+module.exports = db();
+```
+
+----------------------------------------------------------------------
+PROBLEM
+----------------------------------------------------------------------
+
+Write a program that connects to a locally running MongoDB MongoD server
+and prints all documents excluding their '_id' field from the collection, {yellow}test2{/yellow} to the console (stdout).
