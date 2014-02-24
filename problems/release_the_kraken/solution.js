@@ -8,7 +8,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017/test', function(err, db) {
   }
     var collection = db
       .collection('test2')
-      .find({})
+      .find({}, {"fields": {_id:0}})
       .toArray(function(err, object) {
         if (err) console.warn(err.message);
         console.dir(object);
