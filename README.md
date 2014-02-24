@@ -2,6 +2,8 @@
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/braz/takethekraken/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
+![Tame the Kraken !](https://github.com/braz/takethekraken/raw/master/tamethekraken-screenshot.png)
+
 **An intro to KrakenJS and MongoDB via a set of self-guided workshops.**
 
   1. Install [Node.js](http://nodejs.org/)
